@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VenturePath AI | Build Your Own Future</title>
+  <meta name="description" content="A dramatic, AI-powered platform for young entrepreneurs and first-time founders. Discover ideas, build roadmaps, acquire customers, and manage startup finances.">
+  
+  <!-- Google Fonts: Syne, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="editorial-body">
+
+  <!-- NOTIFICATION TOAST -->
+  <div id="toast" class="toast" role="alert" aria-live="polite">
+    <span class="toast-icon">✦</span>
+    <span id="toast-message" class="toast-text">Notification message</span>
+  </div>
+
+  <!-- MAIN WRAPPER -->
+  <div class="page-container">
+
+    <!-- ========================================================= -->
+    <!-- 1. CINEMATIC HERO PANEL (EXACT REFERENCE DESIGN)          -->
+    <!-- ========================================================= -->
+    <header class="hero-showcase-panel">
+      
+      <!-- Minimalist In-Panel Navbar -->
+      <nav class="showcase-nav">
+        <a href="#" class="brand-logo" aria-label="VenturePath AI Home">
+          <span class="brand-symbol">
+            <i></i><i></i><i></i>
+          </span>
+          <span class="brand-title">VENTUREPATH <em>AI</em></span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#about" class="nav-link">ABOUT</a>
+          <a href="#discover" class="nav-link">EXPLORE</a>
+          <a href="#roadmap" class="nav-link">ROADMAP</a>
+          <a href="#validator" class="nav-link">VALIDATOR</a>
+          <a href="#customers" class="nav-link">CUSTOMERS</a>
+          <a href="#budget" class="nav-link">BUDGET</a>
+          <a href="#resources" class="nav-link">RESOURCES</a>
+        </div>
+
+        <div class="nav-cta-wrap">
+          <a href="#dashboard" class="pill-btn nav-action-btn">
+            <span class="pill-dot"></span>
+            <span>WORKSPACE</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Central Hero Stage -->
+      <div class="showcase-stage">
+        
+        <!-- Left Editorial Copy -->
+        <div class="hero-copy-column">
+          <div class="hero-kicker">
+            <span class="kicker-line"></span>
+            <span class="kicker-text" id="slide-kicker">YOUR NEXT CHAPTER</span>
+          </div>
+
+          <h1 class="hero-display-title" id="slide-title">
+            BUILD YOUR<br><span class="highlight-line">OWN FUTURE.</span>
+          </h1>
+
+          <p class="hero-description" id="slide-desc">
+            From a business idea to your first customer. Discover your opportunity, build your roadmap, and turn your ambition into action.
+          </p>
+
+          <div class="hero-cta-group">
+            <!-- Reference circular arrow CTA -->
+            <a href="#discover" class="circle-cta-wrap" id="primary-hero-cta">
+              <span class="circle-arrow-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+              <span class="circle-cta-label">START YOUR JOURNEY</span>
+            </a>
+
+            <a href="#dashboard" class="text-cta-btn">
+              EXPLORE VENTUREPATH <span>↗</span>
+            </a>
+          </div>
+
+          <!-- Bottom Slide Progression Controls (Matches Reference: 01 ── 03) -->
+          <div class="hero-slider-bar">
+            <div class="slider-counter">
+              <span class="counter-curr" id="curr-slide-num">01</span>
+              <span class="counter-track">
+                <span class="counter-fill" id="counter-progress-bar"></span>
+              </span>
+              <span class="counter-total">03</span>
+            </div>
+
+            <div class="slider-arrows">
+              <button class="arrow-btn" id="prev-slide-btn" title="Previous Slide" aria-label="Previous Slide">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button class="arrow-btn" id="next-slide-btn" title="Next Slide" aria-label="Next Slide">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Peek Sphere (Reference Image Detail) -->
+          <div class="bottom-sphere-accent"></div>
+        </div>
+
+        <!-- Right 3D Visual Stage (Crimson Disc + Dramatic Sculpture) -->
+        <div class="hero-visual-column">
+          <!-- Ambient Crimson Backdrop Glow -->
+          <div class="crimson-ambient-glow"></div>
+          
+          <!-- Giant Crimson Circular Disc -->
+          <div class="crimson-circular-disc"></div>
+          
+          <!-- Overlapping 3D Sculpture Presentation -->
+          <div class="sculpture-container" id="sculpture-wrapper">
+            <!-- Slide 01: Prometheus Statue (Primary Reference Style) -->
+            <div class="sculpture-slide active" data-slide="1">
+              <img src="{{ url_for('static', filename='images/hero_statue.png') }}" 
+                   alt="Dramatic 3D Prometheus Sculpture in Crimson Lighting" 
+                   class="sculpture-img"
+                   onerror="this.src='{{ url_for('static', filename='images/prometheus_statue.jpg') }}'">
+              <div class="sculpture-tag">AMBITION & DRIVE</div>
+            </div>
+
+            <!-- Slide 02: Geometric Venture Monument -->
+            <div class="sculpture-slide" data-slide="2">
+              <img src="{{ url_for('static', filename='images/hero_monument.png') }}" 
+                   alt="Dramatic 3D Venture Building Monument" 
+                   class="sculpture-img"
+                   onerror="this.src='{{ url_for('static', filename='images/venture_monument.jpg') }}'">
+              <div class="sculpture-tag">SCALE & ARCHITECTURE</div>
+            </div>
+
+            <!-- Slide 03: Classical Poseidon/Atlas Sculpture -->
+            <div class="sculpture-slide" data-slide="3">
+              <img src="{{ url_for('static', filename='images/hero_reference.png') }}" 
+                   alt="Classical Greek Hero Sculpture" 
+                   class="sculpture-img"
+                   onerror="this.src='{{ url_for('static', filename='images/reference_style.jpg') }}'">
+              <div class="sculpture-tag">RESILIENCE & MASTERY</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- 2. QUICK STATS & METHODOLOGY STRIP                        -->
+    <!-- ========================================================= -->
+    <section class="methodology-strip" id="about">
+      <div class="method-card">
+        <span class="method-num">01</span>
+        <div class="method-text">
+          <strong>DISCOVER</strong>
+          <small>Tailored venture ideas</small>
+        </div>
+      </div>
+
+      <div class="method-card">
+        <span class="method-num">02</span>
+        <div class="method-text">
+          <strong>VALIDATE</strong>
+          <small>Honest AI risk analysis</small>
+        </div>
+      </div>
+
+      <div class="method-card">
+        <span class="method-num">03</span>
+        <div class="method-text">
+          <strong>ROADMAP</strong>
+          <small>10-milestone action plan</small>
+        </div>
+      </div>
+
+      <div class="method-card">
+        <span class="method-num">04</span>
+        <div class="method-text">
+          <strong>ACQUIRE</strong>
+          <small>First 10 paying customers</small>
+        </div>
+      </div>
+
+      <div class="method-card">
+        <span class="method-num">05</span>
+        <div class="method-text">
+          <strong>PLAN BUDGET</strong>
+          <small>Runway & unit economics</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 3. BUSINESS IDEA FINDER (#3)                               -->
+    <!-- ========================================================= -->
+    <section class="content-section" id="discover">
+      <div class="section-header-row">
+        <div>
+          <span class="section-kicker">STEP 01 — OPPORTUNITY DISCOVERY</span>
+          <h2 class="section-title">FIND A BUSINESS THAT <span class="crimson-text">FITS YOU.</span></h2>
+          <p class="section-subtitle">Select your skills, investment threshold, and execution mode. Our algorithm benchmarks viable business models tailored to your strengths.</p>
+        </div>
+        <div class="badge-tag live-badge">
+          <i></i> ALGORITHMIC MATCHING
+        </div>
+      </div>
+
+      <div class="discovery-grid">
+        <!-- Filter Console -->
+        <aside class="panel filter-panel">
+          <form id="idea-discovery-form">
+            
+            <!-- Skills Multi-Select -->
+            <div class="form-group">
+              <label class="form-label">
+                <span>Your Core Skills</span>
+                <small class="label-sub">Select all that apply</small>
+              </label>
+              <div class="skill-chips-cloud" id="skills-cloud">
+                <button type="button" class="skill-chip active" data-skill="marketing">Marketing</button>
+                <button type="button" class="skill-chip active" data-skill="design">Design</button>
+                <button type="button" class="skill-chip" data-skill="coding">Coding</button>
+                <button type="button" class="skill-chip" data-skill="editing">Video Editing</button>
+                <button type="button" class="skill-chip" data-skill="communication">Communication</button>
+                <button type="button" class="skill-chip" data-skill="teaching">Teaching</button>
+                <button type="button" class="skill-chip" data-skill="craft">Art & Craft</button>
+                <button type="button" class="skill-chip" data-skill="technology">AI & Tech</button>
+                <button type="button" class="skill-chip" data-skill="sales">Outreach & Sales</button>
+              </div>
+            </div>
+
+            <!-- Budget Slider -->
+            <div class="form-group">
+              <div class="budget-label-row">
+                <label class="form-label" for="budget-slider">Available Starting Capital</label>
+                <span class="budget-val-display" id="budget-val-badge">₹15,000</span>
+              </div>
+              <input type="range" id="budget-slider" min="1000" max="75000" step="1000" value="15000" class="custom-range-slider">
+              
+              <div class="slider-presets">
+                <button type="button" class="preset-chip" data-amount="3000">₹3k (Lean)</button>
+                <button type="button" class="preset-chip" data-amount="10000">₹10k (Starter)</button>
+                <button type="button" class="preset-chip active" data-amount="15000">₹15k (Recommended)</button>
+                <button type="button" class="preset-chip" data-amount="40000">₹40k (Bootstrap)</button>
+              </div>
+            </div>
+
+            <!-- Mode Selection -->
+            <div class="form-group">
+              <label class="form-label">Execution Mode</label>
+              <div class="mode-toggle-group">
+                <label class="mode-radio">
+                  <input type="radio" name="business_mode" value="all" checked>
+                  <span>All Modes</span>
+                </label>
+                <label class="mode-radio">
+                  <input type="radio" name="business_mode" value="online">
+                  <span>Online Only</span>
+                </label>
+                <label class="mode-radio">
+                  <input type="radio" name="business_mode" value="hybrid">
+                  <span>Hybrid</span>
+                </label>
+                <label class="mode-radio">
+                  <input type="radio" name="business_mode" value="offline">
+                  <span>In-Person</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Time Availability -->
+            <div class="form-group">
+              <label class="form-label">Time Commitment</label>
+              <select id="time-commitment" class="custom-select">
+                <option value="part-time" selected>Part-Time (10–15 hrs / week)</option>
+                <option value="weekend">Weekend Hustle (6–8 hrs / weekend)</option>
+                <option value="full-time">Full-Time Commitment</option>
+              </select>
+            </div>
+
+            <button type="submit" class="submit-action-btn" id="find-ideas-btn">
+              <span>FIND VENTURE IDEAS</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </form>
+        </aside>
+
+        <!-- Results Display Cards -->
+        <main class="results-container">
+          <div class="results-header-bar">
+            <div>
+              <h3 class="results-headline">Curated Recommendations</h3>
+              <p class="results-subtext">Ranked by skill match, capital safety, and operational speed</p>
+            </div>
+            <div class="active-badge" id="results-count-badge">8 VENTURES READY</div>
+          </div>
+
+          <div class="ventures-card-grid" id="recommendations-container">
+            <!-- Dynamic Cards Loaded via JS -->
+            <div class="loading-state">
+              <div class="spinner"></div>
+              <span>Analyzing market models and skill profiles...</span>
+            </div>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 4. PERSONALIZED 10-MILESTONE STARTUP ROADMAP (#4)          -->
+    <!-- ========================================================= -->
+    <section class="content-section" id="roadmap">
+      <div class="section-header-row">
+        <div>
+          <span class="section-kicker">STEP 02 — EXECUTION ROADMAP</span>
+          <h2 class="section-title">THE 10-MILESTONE <span class="crimson-text">LAUNCH ROADMAP.</span></h2>
+          <p class="section-subtitle">A chronological blueprint from idea inception to first customer and sustainable growth. Track your progress with interactive checklists.</p>
+        </div>
+
+        <div class="roadmap-active-indicator">
+          <span class="indicator-label">CURRENT ROADMAP FOR:</span>
+          <strong class="indicator-title" id="roadmap-business-name">Social Media Management & Reels Agency</strong>
+        </div>
+      </div>
+
+      <!-- Progress Meter Header -->
+      <div class="panel roadmap-status-card">
+        <div class="progress-info-col">
+          <div class="progress-title-row">
+            <h4>Roadmap Completion</h4>
+            <span class="progress-percent-badge" id="roadmap-percentage-badge">0% COMPLETE</span>
+          </div>
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="roadmap-progress-fill" style="width: 0%;"></div>
+          </div>
+          <p class="progress-note">
+            <span id="milestone-completed-count">0</span> of <span id="milestone-total-count">10</span> milestones completed. Check off items as you execute them to persist your startup workspace.
+          </p>
+        </div>
+
+        <div class="quick-action-col">
+          <button class="outline-action-btn" id="reset-roadmap-btn">Reset Checklist</button>
+          <a href="#customers" class="pill-btn highlight-btn">Go to Step 03: Customers →</a>
+        </div>
+      </div>
+
+      <!-- 10 Milestone Timeline Cards -->
+      <div class="timeline-container" id="roadmap-timeline-grid">
+        <!-- Rendered dynamically via JS -->
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 5. FIRST 10 CUSTOMERS ACQUISITION ENGINE (#5)              -->
+    <!-- ========================================================= -->
+    <section class="content-section" id="customers">
+      <div class="section-header-row">
+        <div>
+          <span class="section-kicker">STEP 03 — TRACTION & OUTREACH</span>
+          <h2 class="section-title">ACQUIRE YOUR <span class="crimson-text">FIRST 10 CUSTOMERS.</span></h2>
+          <p class="section-subtitle">Real strategies, channels, and verified message templates for early outreach without awkward cold pitching or fabricated data.</p>
+        </div>
+        <div class="badge-tag">HIGH PRIORITY MODULE</div>
+      </div>
+
+      <div class="outreach-dashboard-grid">
+        
+        <!-- Left: Prospect Persona & Channel Intelligence -->
+        <div class="panel channels-panel">
+          <div class="panel-header">
+            <span class="panel-icon">◎</span>
+            <div>
+              <h3>Where to Find Potential Clients</h3>
+              <p>Top acquisition channels tailored for college founders in India</p>
+            </div>
+          </div>
+
+          <div class="channel-list" id="acquisition-channel-list">
+            <div class="channel-card">
+              <div class="channel-badge high">98% OPEN RATE</div>
+              <h4>WhatsApp Communities & Referrals</h4>
+              <p>Local business groups, trade associations, and peer student founder networks.</p>
+            </div>
+            <div class="channel-card">
+              <div class="channel-badge high">HIGH TRUST</div>
+              <h4>Local Walk-Ins with Live Spec Work</h4>
+              <p>Visiting neighborhood cafes, salons, or coaching centers with a 1-minute demo ready on your phone.</p>
+            </div>
+            <div class="channel-card">
+              <div class="channel-badge med">VISUAL PROOF</div>
+              <h4>Instagram Direct Messaging (DMs)</h4>
+              <p>Tagging brands with respectful redesigns and customized reels in direct messages.</p>
+            </div>
+            <div class="channel-card">
+              <div class="channel-badge med">B2B FOCUS</div>
+              <h4>LinkedIn Founder Outreach</h4>
+              <p>Connecting with early-stage founders and agency owners looking for reliable execution partners.</p>
+            </div>
+          </div>
+
+          <!-- Customer Discovery Questions -->
+          <div class="discovery-questions-block">
+            <h4>5 Customer Discovery Questions to Ask</h4>
+            <ul class="discovery-q-list" id="discovery-questions-list">
+              <li>1. What is currently your single most reliable source of new customers?</li>
+              <li>2. How much time does your team spend each week managing this manually?</li>
+              <li>3. If you could eliminate one recurring headache this month, what would it be?</li>
+              <li>4. Have you tried hiring someone for this before? What went wrong?</li>
+              <li>5. What would a successful first month look like for your business?</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Template Studio & CRM -->
+        <div class="panel template-studio-panel">
+          
+          <div class="panel-header">
+            <span class="panel-icon">✉</span>
+            <div>
+              <h3>Outreach Message Studio</h3>
+              <p>Customize and generate ready-to-send messages with 1-click copy</p>
+            </div>
+          </div>
+
+          <!-- Template Inputs -->
+          <div class="template-controls-form">
+            <div class="input-row-2">
+              <div class="form-group">
+                <label class="form-label" for="outreach-founder-name">Your Name</label>
+                <input type="text" id="outreach-founder-name" value="Abhishek" class="custom-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="outreach-business-name">Your Startup / Service</label>
+                <input type="text" id="outreach-business-name" value="VenturePath Media" class="custom-input">
+              </div>
+            </div>
+
+            <div class="input-row-2">
+              <div class="form-group">
+                <label class="form-label" for="outreach-target-prospect">Target Prospect Type</label>
+                <input type="text" id="outreach-target-prospect" value="Local Cafe Owner" class="custom-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="outreach-value-prop">Value Proposition</label>
+                <input type="text" id="outreach-value-prop" value="drive weekend footfall through high-energy Reels" class="custom-input">
+              </div>
+            </div>
+
+            <button type="button" class="outline-action-btn full-btn" id="regenerate-templates-btn">
+              <span>REFRESH TEMPLATES WITH MY DETAILS</span>
+            </button>
+          </div>
+
+          <!-- Tabs for Templates -->
+          <div class="template-tabs-header">
+            <button class="tab-btn active" data-tab="whatsapp">WhatsApp Template</button>
+            <button class="tab-btn" data-tab="email">Cold Email</button>
+            <button class="tab-btn" data-tab="social">Instagram / LinkedIn DM</button>
+            <button class="tab-btn" data-tab="followup">3-Day Follow-Up</button>
+          </div>
+
+          <!-- Tab Content Display -->
+          <div class="template-card-box">
+            <div class="template-body-header">
+              <span class="template-format-label" id="template-channel-badge">WHATSAPP FORMAT</span>
+              <button class="copy-btn" id="copy-template-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>COPY TEXT</span>
+              </button>
+            </div>
+            
+            <div class="template-text-display" id="template-text-box">
+              Loading tailored outreach template...
+            </div>
+            <div class="template-disclaimer">
+              <span>✦ Demo Notice:</span> Replace placeholders with authentic recipient names before sending. Never spam unverified numbers.
+            </div>
+          </div>
+
+          <!-- First 10 Leads Mini CRM Tracker -->
+          <div class="mini-crm-section">
+            <div class="crm-header-row">
+              <h4>First 10 Leads Progress Tracker</h4>
+              <button class="text-link-btn" id="add-lead-btn">+ Add Prospect</button>
+            </div>
+
+            <div class="lead-rows-table" id="crm-leads-table">
+              <!-- Seeded Leads Rendered Dynamically -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 6. BUSINESS IDEA VALIDATOR (#6)                            -->
+    <!-- ========================================================= -->
+    <section class="content-section" id="validator">
+      <div class="section-header-row">
+        <div>
+          <span class="section-kicker">STEP 04 — STRESS-TEST & AUDIT</span>
+          <h2 class="section-title">HONEST BUSINESS <span class="crimson-text">IDEA VALIDATOR.</span></h2>
+          <p class="section-subtitle">Real startup wisdom from accelerators and market reality. Evaluates problem severity, competitive moats, financial runway, and failure risks.</p>
+        </div>
+        <div class="badge-tag">
+          <span class="ai-mode-tag">{% if gemini_enabled %}GEMINI 1.5 ACTIVE{% else %}AI HEURISTIC ENGINE{% endif %}</span>
+        </div>
+      </div>
+
+      <div class="validator-console-grid">
+        
+        <!-- Input Form -->
+        <div class="panel validator-input-card">
+          <div class="panel-header">
+            <span class="panel-icon">⚖</span>
+            <div>
+              <h3>Submit Your Concept</h3>
+              <p>Provide details for a rigorous feasibility evaluation</p>
+            </div>
+          </div>
+
+          <form id="validator-form">
+            <div class="form-group">
+              <label class="form-label" for="val-title">Business Idea Title</label>
+              <input type="text" id="val-title" placeholder="e.g. Campus Peer-to-Peer Notes & Exam Prep App" value="Social Media & Content Agency for Local Cafes" required class="custom-input">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="val-market">Target Customer Segment</label>
+              <input type="text" id="val-market" placeholder="e.g. College students, local cafes, boutique gym owners" value="Independent cafes and bakeries in suburban Mumbai" required class="custom-input">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="val-problem">Specific Problem Being Solved</label>
+              <textarea id="val-problem" rows="3" class="custom-textarea" placeholder="What agonizing pain does the customer experience?" required>Cafe owners are too busy managing inventory and staff to create consistent social media content. As a result, they miss out on local student footfall and weekend sales.</textarea>
+            </div>
+
+            <div class="input-row-2">
+              <div class="form-group">
+                <label class="form-label" for="val-pricing">Proposed Pricing Model</label>
+                <input type="text" id="val-pricing" placeholder="e.g. ₹8,000 / month retainer" value="₹7,500/month for 12 reels" class="custom-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="val-budget">Starting Capital (INR)</label>
+                <input type="number" id="val-budget" value="10000" class="custom-input">
+              </div>
+            </div>
+
+            <button type="submit" class="submit-action-btn full-btn" id="run-validator-btn">
+              <span>RUN FEASIBILITY STRESS-TEST</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Validation Results Display -->
+        <div class="panel validator-output-card" id="validator-results-box">
+          
+          <div class="validator-score-header">
+            <div>
+              <span class="score-sub">FEASIBILITY INDEX</span>
+              <div class="score-number-display">
+                <span class="score-big" id="val-overall-score">82</span>
+                <span class="score-denom">/ 100</span>
+              </div>
+            </div>
+
+            <div class="verdict-col">
+              <span class="verdict-label">FINAL VERDICT</span>
+              <div class="verdict-pill green" id="val-verdict-pill">STRONG OPPORTUNITY</div>
+            </div>
+          </div>
+
+          <p class="validator-summary-p" id="val-summary-text">
+            This idea has solid unit economics, manageable startup friction, and genuine commercial demand. Focus on immediate customer acquisition rather than over-engineering.
+          </p>
+
+          <!-- 4 Core Vector Gauges -->
+          <div class="vector-gauges-grid">
+            <div class="gauge-item">
+              <div class="gauge-title-row">
+                <span>Problem Severity</span>
+                <strong id="val-score-problem">86%</strong>
+              </div>
+              <div class="mini-bar-track"><div class="mini-bar-fill" id="val-bar-problem" style="width: 86%;"></div></div>
+            </div>
+
+            <div class="gauge-item">
+              <div class="gauge-title-row">
+                <span>Market Demand</span>
+                <strong id="val-score-demand">80%</strong>
+              </div>
+              <div class="mini-bar-track"><div class="mini-bar-fill" id="val-bar-demand" style="width: 80%;"></div></div>
+            </div>
+
+            <div class="gauge-item">
+              <div class="gauge-title-row">
+                <span>Defensive Moat</span>
+                <strong id="val-score-moat">62%</strong>
+              </div>
+              <div class="mini-bar-track"><div class="mini-bar-fill" id="val-bar-moat" style="width: 62%;"></div></div>
+            </div>
+
+            <div class="gauge-item">
+              <div class="gauge-title-row">
+                <span>Capital Ease</span>
+                <strong id="val-score-finance">92%</strong>
+              </div>
+              <div class="mini-bar-track"><div class="mini-bar-fill" id="val-bar-finance" style="width: 92%;"></div></div>
+            </div>
+          </div>
+
+          <!-- Deep Breakdown (Strengths / Risks / Experiments) -->
+          <div class="audit-breakdown-tabs">
+            <div class="audit-col">
+              <h4 class="audit-head positive">✦ Key Strengths</h4>
+              <ul class="audit-list" id="val-strengths-list">
+                <li>Low capital requirement; cash flow can be generated in the first 14 days.</li>
+                <li>Direct relationship with buyers allows rapid service iterations.</li>
+              </ul>
+            </div>
+
+            <div class="audit-col">
+              <h4 class="audit-head caution">⚠ Critical Risks & Blind Spots</h4>
+              <ul class="audit-list" id="val-risks-list">
+                <li>High client churn if engagement spikes do not translate directly to footfall.</li>
+                <li>Low initial moat; competing freelancers can quote lower rates.</li>
+              </ul>
+            </div>
+
+            <div class="audit-col full-width">
+              <h4 class="audit-head action">⚡ 3 Zero-Cost Validation Experiments to Run This Week</h4>
+              <ul class="audit-list numbered" id="val-experiments-list">
+                <li>1. Create 3 spec Instagram Reels for a target local cafe and present in person with a 50% first-month pilot offer.</li>
+                <li>2. Interview 5 cafe managers to confirm if social media management is in their top 3 headaches this quarter.</li>
+                <li>3. Attempt to secure 1 upfront token deposit before spending any funds on equipment or software licenses.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 7. STARTUP BUDGET & UNIT ECONOMICS PLANNER (#7)            -->
+    <!-- ========================================================= -->
+    <section class="content-section" id="budget">
+      <div class="section-header-row">
+        <div>
+          <span class="section-kicker">STEP 05 — FINANCIAL RUNWAY</span>
+          <h2 class="section-title">STARTUP BUDGET & <span class="crimson-text">UNIT ECONOMICS.</span></h2>
+          <p class="section-subtitle">Real financial calculation engine. Calculate your Capex, Monthly Burn, Break-Even volume, and cash runway to avoid running out of capital.</p>
+        </div>
+        <div class="badge-tag">FINANCIAL ENGINE</div>
+      </div>
+
+      <div class="budget-planner-grid">
+        
+        <!-- Left: Interactive Sliders & Presets -->
+        <div class="panel budget-inputs-panel">
+          
+          <div class="presets-bar">
+            <span class="preset-label">Financial Presets:</span>
+            <button class="chip-btn active" data-preset="agency">Freelance Agency (₹20k)</button>
+            <button class="chip-btn" data-preset="ecommerce">D2C Brand (₹45k)</button>
+            <button class="chip-btn" data-preset="tutoring">Tutoring / Tech (₹8k)</button>
+          </div>
+
+          <form id="budget-calculator-form">
+            
+            <div class="input-section-title">ONE-TIME INITIAL CAPITAL (CAPEX)</div>
+            
+            <div class="form-group">
+              <div class="label-val-row">
+                <label for="b-starting-capital">Starting Capital in Bank</label>
+                <span class="calc-val-badge" id="disp-starting-capital">₹20,000</span>
+              </div>
+              <input type="range" id="b-starting-capital" min="2000" max="100000" step="1000" value="20000" class="custom-range-slider">
+            </div>
+
+            <div class="input-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="b-equipment">Equipment & Tools (₹)</label>
+                <input type="number" id="b-equipment" value="4000" class="custom-input">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="b-marketing">Marketing & Launch Ads (₹)</label>
+                <input type="number" id="b-marketing" value="3000" class="custom-input">
+              </div>
+            </div>
+
+            <div class="input-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="b-registration">Domain & Legal Setup (₹)</label>
+                <input type="number" id="b-registration" value="1500" class="custom-input">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="b-inventory">Initial Inventory / Supplies (₹)</label>
+                <input type="number" id="b-inventory" value="2500" class="custom-input">
+              </div>
+            </div>
+
+            <div class="input-section-title mt-4">MONTHLY RECURRING & UNIT ECONOMICS</div>
+
+            <div class="form-group">
+              <div class="label-val-row">
+                <label for="b-monthly-expenses">Monthly Operating Expenses (Burn Rate)</label>
+                <span class="calc-val-badge" id="disp-monthly-expenses">₹3,500</span>
+              </div>
+              <input type="range" id="b-monthly-expenses" min="500" max="30000" step="500" value="3500" class="custom-range-slider">
+            </div>
+
+            <div class="input-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="b-selling-price">Selling Price per Unit/Client (₹)</label>
+                <input type="number" id="b-selling-price" value="1200" class="custom-input">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="b-expected-sales">Expected Monthly Sales / Units</label>
+                <input type="number" id="b-expected-sales" value="15" class="custom-input">
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Right: Real-Time Financial Intelligence Cards -->
+        <div class="panel budget-metrics-panel">
+          
+          <div class="metrics-cards-grid">
+            
+            <div class="metric-card">
+              <span class="metric-label">TOTAL STARTUP CAPEX</span>
+              <div class="metric-number" id="disp-total-capex">₹11,000</div>
+              <small class="metric-sub">Equipment + Ads + Legal + Inventory</small>
+            </div>
+
+            <div class="metric-card highlight">
+              <span class="metric-label">REMAINING CASH BUFFER</span>
+              <div class="metric-number crimson" id="disp-remaining-cash">₹9,000</div>
+              <small class="metric-sub">Safety capital remaining after setup</small>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-label">ESTIMATED RUNWAY</span>
+              <div class="metric-number" id="disp-runway-months">2.6 Months</div>
+              <small class="metric-sub">Zero-revenue survival duration</small>
+            </div>
+
+            <div class="metric-card green">
+              <span class="metric-label">BREAK-EVEN VOLUME</span>
+              <div class="metric-number" id="disp-breakeven-units">3 Units</div>
+              <small class="metric-sub">Sales needed each month to cover costs</small>
+            </div>
+
+          </div>
+
+          <!-- Profitability & Revenue Projection Bar -->
+          <div class="projection-statement-box">
+            <div class="proj-row">
+              <span>Estimated Monthly Revenue:</span>
+              <strong id="disp-monthly-revenue">₹18,000</strong>
+            </div>
+            <div class="proj-row">
+              <span>Monthly Operating Costs:</span>
+              <strong class="crimson-text" id="disp-monthly-burn">-₹3,500</strong>
+            </div>
+            <div class="proj-divider"></div>
+            <div class="proj-row highlight">
+              <span>Estimated Net Profit / Loss:</span>
+              <strong class="profit-badge" id="disp-monthly-profit">+₹14,500 / mo</strong>
+            </div>
+          </div>
+
+          <!-- Dynamic SVG Unit Economics Comparison Bar -->
+          <div class="visual-economics-chart">
+            <div class="chart-legend-row">
+              <span class="legend-item"><i class="dot dot-capex"></i> Setup Capex</span>
+              <span class="legend-item"><i class="dot dot-opex"></i> Monthly Burn</span>
+              <span class="legend-item"><i class="dot dot-rev"></i> Projected Revenue</span>
+            </div>
+
+            <div class="chart-bars-wrap" id="chart-bars-container">
+              <div class="bar-col">
+                <div class="bar bar-1" id="bar-capex-el" style="height: 60%;"></div>
+                <span>Capex</span>
+              </div>
+              <div class="bar-col">
+                <div class="bar bar-2" id="bar-burn-el" style="height: 30%;"></div>
+                <span>Burn</span>
+              </div>
+              <div class="bar-col">
+                <div class="bar bar-3" id="bar-rev-el" style="height: 85%;"></div>
+                <span>Revenue</span>
+              </div>
+            </div>
+            <div class="disclaimer-note">
+              ✦ Financial projections are estimates based on your stated unit economics and do not guarantee market performance.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 8. MENTOR & OFFICIAL RESOURCE DIRECTORY (#8)               -->
+    <!-- ========================================================= -->
+    <section class="content-section" id="resources">
+      <div class="section-header-row">
+        <div>
+          <span class="section-kicker">STEP 06 — ECOSYSTEM & RESOURCES</span>
+          <h2 class="section-title">VERIFIED STARTUP <span class="crimson-text">DIRECTORY.</span></h2>
+          <p class="section-subtitle">Official Indian government programs, MSME schemes, premier incubators, and free legal agreement templates. Verified official links only.</p>
+        </div>
+        <div class="badge-tag">INDIA FOCUS</div>
+      </div>
+
+      <div class="panel resources-panel">
+        
+        <!-- Search and Category Filters -->
+        <div class="resources-toolbar">
+          <div class="category-tabs" id="resource-category-tabs">
+            <button class="cat-tab active" data-cat="all">All Resources</button>
+            <button class="cat-tab" data-cat="government">Government & MSME</button>
+            <button class="cat-tab" data-cat="legal">Legal & Incorporation</button>
+            <button class="cat-tab" data-cat="research">Market Research</button>
+            <button class="cat-tab" data-cat="incubator">Incubators</button>
+          </div>
+
+          <div class="resource-search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="resource-search-input" placeholder="Search resources or schemes..." class="search-input">
+          </div>
+        </div>
+
+        <!-- Resources Grid -->
+        <div class="resources-cards-grid" id="resources-grid-container">
+          <!-- Rendered dynamically via JS -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 9. DASHBOARD WORKSPACE (#9)                                -->
+    <!-- ========================================================= -->
+    <section class="content-section" id="dashboard">
+      <div class="section-header-row">
+        <div>
+          <span class="section-kicker">WORKSPACE COMMAND CENTER</span>
+          <h2 class="section-title">YOUR ENTREPRENEUR <span class="crimson-text">WORKSPACE.</span></h2>
+          <p class="section-subtitle">A centralized editorial command center tracking your selected venture, roadmap velocity, financial runway, and active customer pipeline.</p>
+        </div>
+        <div class="badge-tag live-badge"><i></i> PERSISTED IN SQLITE</div>
+      </div>
+
+      <div class="dashboard-editorial-grid">
+        
+        <!-- Card 1: Active Venture Card -->
+        <div class="panel dash-card hero-active-venture">
+          <div class="dash-tag">ACTIVE VENTURE</div>
+          <h3 class="dash-venture-title" id="dash-venture-name">Social Media Management & Reels Agency</h3>
+          <p class="dash-venture-desc" id="dash-venture-tagline">Turn local shops and brands into local viral sensations</p>
+          
+          <div class="dash-stats-row">
+            <div>
+              <span class="dash-sub">Estimated Investment</span>
+              <strong id="dash-venture-budget">₹3,000</strong>
+            </div>
+            <div>
+              <span class="dash-sub">Difficulty</span>
+              <strong class="green-text" id="dash-venture-diff">Beginner Friendly</strong>
+            </div>
+            <div>
+              <span class="dash-sub">Execution Mode</span>
+              <strong id="dash-venture-mode">ONLINE</strong>
+            </div>
+          </div>
+
+          <div class="dash-btn-group">
+            <a href="#roadmap" class="pill-btn highlight-btn">Open Action Roadmap →</a>
+            <a href="#discover" class="outline-action-btn">Switch Venture</a>
+          </div>
+        </div>
+
+        <!-- Card 2: Roadmap Velocity Gauge -->
+        <div class="panel dash-card roadmap-gauge-card">
+          <div class="dash-tag">ROADMAP PROGRESS</div>
+          
+          <div class="circular-progress-wrap">
+            <svg class="progress-ring" width="130" height="130">
+              <circle class="progress-ring-bg" stroke="rgba(255,255,255,0.08)" stroke-width="8" fill="transparent" r="54" cx="65" cy="65"/>
+              <circle class="progress-ring-circle" id="dash-progress-ring" stroke="#E63946" stroke-width="8" stroke-dasharray="339.29" stroke-dashoffset="339.29" fill="transparent" r="54" cx="65" cy="65"/>
+            </svg>
+            <div class="progress-ring-center">
+              <span class="ring-num" id="dash-ring-percent">0%</span>
+              <span class="ring-sub">DONE</span>
+            </div>
+          </div>
+
+          <div class="ring-footer-text">
+            <strong id="dash-milestones-summary">0 of 10 Milestones</strong> completed.<br>
+            Next task: <span id="dash-next-task-name" class="crimson-text">Select niche market</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Financial Health Snapshot -->
+        <div class="panel dash-card finance-snapshot-card">
+          <div class="dash-tag">FINANCIAL SNAPSHOT</div>
+          
+          <div class="dash-finance-metric">
+            <span class="metric-label">REMAINING RUNWAY CAPITAL</span>
+            <div class="dash-large-num" id="dash-cash-cushion">₹9,000</div>
+          </div>
+
+          <div class="dash-split-metrics">
+            <div>
+              <span class="metric-label">Break-Even Sales</span>
+              <strong id="dash-breakeven-metric">3 Units / Mo</strong>
+            </div>
+            <div>
+              <span class="metric-label">Projected Net</span>
+              <strong class="green-text" id="dash-profit-metric">+₹14,500 / mo</strong>
+            </div>
+          </div>
+
+          <a href="#budget" class="text-link-btn mt-3">Adjust Financial Parameters ↗</a>
+        </div>
+
+        <!-- Card 4: Customer Acquisition Pipeline -->
+        <div class="panel dash-card pipeline-card full-span">
+          <div class="pipeline-header">
+            <div>
+              <div class="dash-tag">TRACTION PIPELINE</div>
+              <h3>First 10 Customers Pipeline</h3>
+            </div>
+            <a href="#customers" class="pill-btn nav-action-btn">+ Outreach Studio</a>
+          </div>
+
+          <div class="pipeline-stages-grid" id="dash-pipeline-stages">
+            <div class="pipe-col">
+              <div class="pipe-head">IDENTIFIED (<span id="count-identified">1</span>)</div>
+              <div class="pipe-body" id="pipe-identified-leads">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <div class="pipe-col">
+              <div class="pipe-head">CONTACTED (<span id="count-contacted">1</span>)</div>
+              <div class="pipe-body" id="pipe-contacted-leads">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <div class="pipe-col">
+              <div class="pipe-head">REPLIED (<span id="count-replied">1</span>)</div>
+              <div class="pipe-body" id="pipe-replied-leads">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <div class="pipe-col">
+              <div class="pipe-head">CONVERTED / PAID (<span id="count-converted">0</span>)</div>
+              <div class="pipe-body" id="pipe-converted-leads">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 10. EDITORIAL FOOTER                                      -->
+    <!-- ========================================================= -->
+    <footer class="editorial-footer">
+      <div class="footer-top-row">
+        <div class="footer-brand">
+          <div class="brand-symbol">
+            <i></i><i></i><i></i>
+          </div>
+          <strong>VENTUREPATH AI</strong>
+          <p>The entrepreneurial launchpad for the next generation of founders.</p>
+        </div>
+
+        <div class="footer-links-col">
+          <span class="footer-col-title">NAVIGATION</span>
+          <a href="#discover">Venture Finder</a>
+          <a href="#roadmap">Action Roadmap</a>
+          <a href="#customers">First 10 Customers</a>
+          <a href="#validator">AI Idea Validator</a>
+          <a href="#budget">Budget Planner</a>
+          <a href="#resources">Official Directory</a>
+        </div>
+
+        <div class="footer-links-col">
+          <span class="footer-col-title">ACADEMIC PROJECT</span>
+          <span class="footer-text-item">TYBSc Computer Science</span>
+          <span class="footer-text-item">Flask + REST API Architecture</span>
+          <span class="footer-text-item">SQLite Persistence Engine</span>
+          <span class="footer-text-item">Gemini AI Integration</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <p>© 2026 VenturePath AI. Designed with dark editorial aesthetic inspired by dramatic sculptural craftsmanship.</p>
+        <div class="footer-back-to-top">
+          <a href="#" class="back-top-link">BACK TO TOP ↑</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
